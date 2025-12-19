@@ -1,13 +1,8 @@
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { View, Text, Pressable, Image, Animated, Easing } from 'react-native';
-import { useRouter } from 'expo-router';
+import { View, Text, Pressable, Animated, Easing } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import { Feather as FeatherIcons } from '@expo/vector-icons';
-import ThemeToggle from './ThemeToggle';
-import ThemeToggleNew from './ThemeToggleNew';
 import { BlurView } from 'expo-blur';
 import useThemeColors from '@/app/contexts/ThemeColors';
-import SlideUp from './SlideUp';
 import { useState, useRef } from 'react';
 import React from 'react';
 
@@ -20,9 +15,6 @@ interface BottomBarProps {
 }
 
 export default function BottomBar({ showBackButton = false, title = '', hasAvatar = false }: BottomBarProps) {
-    const insets = useSafeAreaInsets();
-    const router = useRouter();
-    const [showSlideUp, setShowSlideUp] = useState(false);
     const [activeItem, setActiveItem] = useState<FeatherIconName>('camera');
 
     const handleItemPress = (iconName: FeatherIconName) => {
@@ -39,8 +31,8 @@ export default function BottomBar({ showBackButton = false, title = '', hasAvata
                 shadowOpacity: 0.3,
                 shadowRadius: 10,
             }}
-            className='rounded-full '>
-                <BlurView tint='dark' intensity={10} className='flex-row py-1.5 px-1 w-[300px] overflow-hidden rounded-full items-center justify-between bg-black/40'>
+            className='rounded-full border border-white/20 '>
+                <BlurView tint='dark' intensity={10} className='flex-row py-1.5 px-1 w-[300px] overflow-hidden rounded-full items-center justify-between bg-black/50'>
                     <BottomBarItem 
                         icon='camera' 
                         title='Photo' 

@@ -1,8 +1,6 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, Pressable, Image, Animated, Easing } from 'react-native';
-import { useRouter } from 'expo-router';
 import Feather from '@expo/vector-icons/Feather';
-import { BlurView } from 'expo-blur';
 import useThemeColors from '@/app/contexts/ThemeColors';
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -63,7 +61,7 @@ export default function JournalCard({ title, imageUrl, description, date = 'Wedn
                     borderRadius: 30,
                     //paddingBottom: 100
                 }}
-                className=' bg-light-secondary dark:bg-black overflow-hidden mb-global' >
+                className=' bg-secondary overflow-hidden mb-global' >
                 <Animated.View
                     style={{ height: imageHeightAnim, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}
                     className='w-full overflow-hidden'>
@@ -77,8 +75,8 @@ export default function JournalCard({ title, imageUrl, description, date = 'Wedn
                     </Animated.View>
                 </Animated.View>
                 <View className='p-6'>
-                    <Text className='text-sm text-neutral-400 dark:text-neutral-400 mb-0.5'>{date}</Text>
-                    <Text className='text-xl font-lora dark:text-white'>{title}</Text>
+                    <Text className='text-sm text-text mb-0.5'>{date}</Text>
+                    <Text className='text-xl font-lora text-text'>{title}</Text>
                     <Animated.View
                         style={{ opacity: contentOpacityAnim }}
                         className="w-full py-2  overflow-hidden">

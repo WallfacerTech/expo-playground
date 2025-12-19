@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */ 
 module.exports = {
   content: [
     "./App.{js,ts,tsx}",
@@ -6,31 +6,26 @@ module.exports = {
     "./app/**/*.{js,ts,tsx}",
     "./global.css", // Include global.css
   ],
+  presets: [require("nativewind/preset")],
   theme: {
     extend: {
       fontFamily: {
         'outfit': ['Outfit_400Regular'],
         'outfit-bold': ['Outfit_700Bold'],
-        'noto': ['Noto_Sans_400Regular'],
-        'noto-bold': ['Noto_Sans_700Bold'],
-        lora: ['Lora_400Regular'],
-        'lora-bold': ['Lora_700Bold'],
       },
       spacing: {
-        global: '16px'
+        global: '24px'
       },
       colors: {
-        // Light theme colors
-        highlight: '#0EA5E9',
-        light: {
-          primary: '#F5F5F5', // Light gray
-          secondary: '#FFFFFF', // White
-        },
-        // Dark theme colors
-        dark: {
-          primary: '#171717', // Black
-          secondary: '#323232',
-        },
+        primary: "var(--color-primary)",
+        invert: "var(--color-invert)",
+        secondary: "var(--color-secondary)",
+        background: "var(--color-background)",
+        text: "var(--color-text)",
+        highlight: "var(--color-highlight)",
+        border: "var(--color-border)",
+        invert: "var(--color-invert)",
+        darker: "var(--color-darker)",
       },
     },
   },

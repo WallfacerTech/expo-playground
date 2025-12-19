@@ -8,10 +8,7 @@ export default function JournalCardsScreen() {
     return (
         <>
             <Header showBackButton />
-            <LinearGradient
-                colors={['transparent', 'rgba(0, 0, 0, 0.2)']}
-                style={{ flex: 1 }}
-            >
+            <View className='flex-1 bg-background'>
                 <ScrollView className='flex-1 '>
                     <View 
                     style={{
@@ -58,7 +55,7 @@ export default function JournalCardsScreen() {
                         />
                     </View>
                 </ScrollView>
-            </LinearGradient>
+            </View>
         </>
     );
 }

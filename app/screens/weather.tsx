@@ -6,7 +6,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Feather from '@expo/vector-icons/Feather';
 
 export default function WeatherScreen() {
-    const colors = useThemeColors();
     const insets = useSafeAreaInsets();
     const [currentDayIndex, setCurrentDayIndex] = useState(4); // Friday is active by default
 
@@ -26,9 +25,9 @@ export default function WeatherScreen() {
     return (
         <>
             <Header showBackButton />
-            <View className='flex-1 p-6 bg-light-primary dark:bg-dark-primary'>
-                <View className='flex-row pt-2 mt-[105px] overflow-hidden items-start justify-between border-t border-black dark:border-white'>
-                    <Text className='text-sm font-normal uppercase dark:text-white'>
+            <View className='flex-1 p-6 bg-background'>
+                <View className='flex-row pt-2 mt-[105px] overflow-hidden items-start justify-between border-t border-text'>
+                    <Text className='text-sm font-normal uppercase text-text'>
                         New York
                     </Text>
                     <AnimatedDateDisplay currentWeather={currentWeather} />
@@ -52,7 +51,7 @@ export default function WeatherScreen() {
 
             </View>
             <View className='flex-row w-full relative'>
-                <View className='flex-row border-t border-black dark:border-white flex-1 px-6 bg-light-primary dark:bg-dark-primary items-center justify-between' style={{ paddingBottom: insets.bottom }}>
+                <View className='flex-row border-t border-text flex-1 px-6 bg-background items-center justify-between' style={{ paddingBottom: insets.bottom }}>
                     <DayMenu day='Mon' onPress={() => setCurrentDayIndex(0)} isActive={currentDayIndex === 0} />
                     <DayMenu day='Tue' onPress={() => setCurrentDayIndex(1)} isActive={currentDayIndex === 1} />
                     <DayMenu day='Wed' onPress={() => setCurrentDayIndex(2)} isActive={currentDayIndex === 2} />
@@ -110,10 +109,10 @@ const AnimatedDateDisplay = ({ currentWeather }: { currentWeather: any }) => {
                 transform: [{ translateY: slideAnim }]
             }}
         >
-            <Text className='text-sm font-normal uppercase dark:text-white'>
+            <Text className='text-sm font-normal uppercase text-text'>
                 {displayData.day}
             </Text>
-            <Text className='text-3xl font-semibold dark:text-white'>
+            <Text className='text-3xl font-semibold text-text'>
                 {displayData.date}
             </Text>
         </Animated.View>
@@ -186,11 +185,11 @@ const AnimatedWeatherDisplay = ({ currentWeather }: { currentWeather: any }) => 
                     transform: [{ translateY: slideAnim }]
                 }}
             >
-                <Text className='text-xl font-semibold dark:text-white mb-2'>
+                <Text className='text-xl font-semibold text-text mb-2'>
                     {displayData.condition}
                 </Text>
             </Animated.View>
-            <Text className='text-6xl font-bold dark:text-white'>
+            <Text className='text-6xl font-bold text-text'>
                 {displayTemp}°
             </Text>
         </View>
@@ -271,7 +270,7 @@ const AnimatedWeatherIcon = ({ currentWeather }: { currentWeather: any }) => {
 const DayMenu = ({ day, isActive, onPress }: { day: string; isActive: boolean; onPress: () => void }) => {
     return (
         <Pressable onPress={onPress} className="flex-row flex-1 items-center justify-center pt-6 pb-4">
-            <Text className={`dark:text-white text-xs uppercase ${isActive ? 'opacity-100 font-medium' : 'opacity-50'}`}>{day}</Text>
+            <Text className={`text-text text-xs uppercase ${isActive ? 'opacity-100 font-medium' : 'opacity-50'}`}>{day}</Text>
         </Pressable>
     )
 }
@@ -282,10 +281,10 @@ const DayData = (props: any) => {
         <View className='flex-row justify-between items-center  w-2/3 py-2'>
             <View className='flex-row items-center w-[140px]'>
                 <Feather name={props.icon} size={17} color={colors.icon} strokeWidth={0.2} />
-                <Text className='text-sm font-semibold dark:text-white ml-4'>{props.data}</Text>
+                <Text className='text-sm font-semibold text-text ml-4'>{props.data}</Text>
             </View>
             <View className='items-start flex-1'>
-                <Text className='text-xs w-full font-normal uppercase dark:text-white opacity-50 text-left'>{props.label}</Text>
+                <Text className='text-xs w-full font-normal uppercase text-text opacity-50 text-left'>{props.label}</Text>
             </View>
         </View>
     )
@@ -374,10 +373,10 @@ const PrecipitationBar = ({ precipitation, height, index, dayIndex }: {
 
     // Color based on precipitation level
     const getBarColor = (precip: number) => {
-        if (precip >= 70) return 'bg-black/90 dark:bg-white/90';
-        if (precip >= 40) return 'bg-black/70 dark:bg-white/70';
-        if (precip >= 20) return 'bg-black/50 dark:bg-white/50';
-        return 'bg-black/30 dark:bg-white/30'; 
+        if (precip >= 70) return 'bg-text opacity-80';
+        if (precip >= 40) return 'bg-text opacity-50';
+        if (precip >= 20) return 'bg-text opacity-70';
+        return 'bg-text opacity-90'; 
     };
 
     return (
@@ -390,7 +389,7 @@ const PrecipitationBar = ({ precipitation, height, index, dayIndex }: {
                 }}
                 className={`w-3 rounded-t-sm ${getBarColor(precipitation)}`}
             />
-            <Text className='text-xs dark:text-white mt-2 font-medium'>{displayPrecip}</Text>
+            <Text className='text-xs text-text mt-2 font-medium'>{displayPrecip}</Text>
         </View>
     );
 };
@@ -422,7 +421,7 @@ const SlidingIndicator = ({ currentDayIndex }: { currentDayIndex: number }) => {
 
     return (
         <Animated.View
-            className="absolute -top-px h-1 bg-light-primary dark:bg-dark-primary rounded-b-full"
+            className="absolute -top-px h-1 bg-background rounded-b-full"
             style={{
                 width: '12.5%', 
                 left: leftPosition,

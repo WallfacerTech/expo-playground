@@ -14,7 +14,7 @@ export default function JournalCardsScreen() {
         <>
             <Header showBackButton />
 
-            <ScrollView className='flex-1 bg-light-primary dark:bg-black/80 p-2' style={{ paddingTop: insets.top + 80 }}>
+            <ScrollView className='flex-1 bg-background p-2' style={{ paddingTop: insets.top + 80 }}>
                 <Counter currentDataIndex={currentDataIndex} setCurrentDataIndex={setCurrentDataIndex} />
                 <Chart currentDataIndex={currentDataIndex} />
             </ScrollView>
@@ -37,7 +37,7 @@ const Chart = ({ currentDataIndex }: { currentDataIndex: number }) => {
     const yAxisLabels = [0, 25, 50, 75, 100];
 
     return (
-        <View className='mx-global mb-8'>
+        <View className='mx-global mb-8 bg-background'>
             <View className="flex-row">
                 <View className="mr-3" style={{ height: maxBarHeight + 20 }}>
                     {yAxisLabels.reverse().map((label, index) => (
@@ -179,13 +179,13 @@ const Counter = ({ currentDataIndex, setCurrentDataIndex }: { currentDataIndex: 
 
     return (
         <View className='mt-6 mb-20 px-global'>
-            <Text className='text-5xl font-semibold dark:text-white'>You've made</Text>
+            <Text className='text-5xl font-semibold text-text'>You've made</Text>
             <Text className='text-5xl text-rose-500 font-semibold'>
                 ${displayAmount.toLocaleString()}
             </Text>
             <View className='flex-row items-center justify-between'>
                 <Animated.View style={{ opacity: fadeAnim }}>
-                    <Text className='text-5xl font-semibold dark:text-white'>{currentData.month}</Text>
+                    <Text className='text-5xl font-semibold text-text'>{currentData.month}</Text>
                 </Animated.View>
                 <View className='flex-row items-center justify-center'>
                     <Pressable
@@ -206,7 +206,7 @@ const Counter = ({ currentDataIndex, setCurrentDataIndex }: { currentDataIndex: 
                     </Pressable>
                 </View>
             </View>
-            <Text className='text-lg dark:text-white'>Upcoming <Text className='text-lg font-semibold dark:text-white'>$3,201</Text></Text>
+            <Text className='text-lg text-text'>Upcoming <Text className='text-lg font-semibold text-text'>$3,201</Text></Text>
         </View>
     );
 };

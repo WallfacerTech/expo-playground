@@ -14,10 +14,10 @@ export default function Home() {
     return (
         <>
             <Header hasAvatar />
-            <ScrollView style={{ paddingTop: insets.top + 80 }} className='px-5 pt-10  bg-light-primary dark:bg-dark-primary'>
+            <ScrollView style={{ paddingTop: insets.top + 80 }} className='px-5 pt-10  bg-background'>
                 <View className='mb-14 mt-10'>
-                    <Text className='text-4xl font-bold dark:text-white'>Hello there!</Text>
-                    <Text className='text-neutral-600 dark:text-neutral-400 text-lg'>Welcome to my playground</Text>
+                    <Text className='text-4xl font-bold text-text'>Hello there!</Text>
+                    <Text className='text-text text-lg'>Welcome to my playground</Text>
                 </View>
                 <LinkItem href='/screens/onboarding' icon='copy' title='Onboarding' description='introduction slider' />
                 <LinkItem href='/screens/weather' icon='cloud' title='Weather' description='weather app' />
@@ -45,11 +45,11 @@ const LinkItem = (props: any) => {
                     shadowRadius: 3.84,
                     elevation: 5,
                 }}
-                className='flex-row items-center bg-white dark:bg-dark-secondary rounded-xl px-5 py-4 mb-2'>
+                className='flex-row items-center bg-secondary rounded-xl px-5 py-4 mb-2'>
                 <Feather name={props.icon} size={20} color={colors.icon} />
                 <View className='justify-center ml-4'>
                     <View className='flex-row items-center'>
-                        <Text className='text-base font-bold dark:text-white'>{props.title}</Text>
+                        <Text className='text-base font-bold text-text'>{props.title}</Text>
                         {props.comingSoon &&
                         <View className='bg-sky-500 rounded-full px-2 py-[3px] ml-2'>
                             <Text className='text-xs text-white'>Soon</Text>

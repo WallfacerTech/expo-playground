@@ -45,7 +45,7 @@ export default function OnboardingScreen() {
     return (
         <>
             <Header showBackButton />
-            <View className="flex-1 relative bg-neutral-100 dark:bg-neutral-900" style={{ paddingBottom: insets.bottom }}>
+            <View className="flex-1 relative bg-background" style={{ paddingBottom: insets.bottom }}>
                 <FlatList
                     ref={flatListRef}
                     data={slides}
@@ -59,8 +59,8 @@ export default function OnboardingScreen() {
                     renderItem={({ item }) => (
                         <View style={{ width: windowWidth }} className="items-center justify-center p-6">
                             <LottieView autoPlay source={item.image} style={{ width: windowWidth / 1.1, height: windowWidth / 1.1 }} />
-                            <Text className="text-3xl font-bold mt-4 dark:text-white">{item.title}</Text>
-                            <Text className="text-center w-2/3 text-light-subtext dark:text-dark-subtext mt-2">{item.description}</Text>
+                            <Text className="text-3xl font-bold mt-4 text-text">{item.title}</Text>
+                            <Text className="text-center w-2/3 text-text mt-2 opacity-50">{item.description}</Text>
                         </View>
                     )}
                     ListFooterComponent={() => (
@@ -73,7 +73,7 @@ export default function OnboardingScreen() {
                     {slides.map((_, index) => (
                         <View
                             key={index}
-                            className={`h-[2px] mx-px ${index === currentIndex ? 'bg-black dark:bg-white w-4' : 'bg-neutral-300 dark:bg-dark-secondary w-4'}`}
+                            className={`h-[2px] mx-px ${index === currentIndex ? 'bg-highlight w-4' : 'bg-neutral-300 w-4'}`}
                         />
                     ))}
                 </View>
@@ -87,18 +87,18 @@ export default function OnboardingScreen() {
                         shadowRadius: 3.84,
                         elevation: 5,
                     }}
-                    className='w-full bg-white dark:bg-black rounded-full flex flex-row items-center justify-center py-4'>
-                        <Feather name="mail" size={20} color={colors.icon} />
-                        <Text className='text-black dark:text-white ml-3'>Use email</Text>
+                    className='w-full bg-white rounded-full flex flex-row items-center justify-center py-4'>
+                        <Feather name="mail" size={20} color="black" />
+                        <Text className='text-black ml-3'>Use email</Text>
                     </Pressable>
                     <View className='flex flex-row items-center justify-center gap-2 mt-3'>
-                        <Pressable className='flex-1 bg-black dark:bg-white rounded-full flex flex-row items-center justify-center py-4'>
-                            <AntDesign name="google" size={22} color={colors.invert} />
-                            <Text className='ml-3 text-white dark:text-black'>Google login</Text>
+                        <Pressable className='flex-1 bg-black rounded-full flex flex-row items-center justify-center py-4 border border-border'>
+                            <AntDesign name="google" size={22} color="white" />
+                            <Text className='ml-3 text-white'>Google login</Text>
                         </Pressable>
-                        <Pressable className='flex-1 relative bg-black dark:bg-white rounded-full flex flex-row items-center justify-center py-4'>
-                            <AntDesign name="apple1" size={22} color={colors.invert} />
-                            <Text className='ml-3 text-white dark:text-black'>Apple ID</Text>
+                        <Pressable className='flex-1 relative bg-black rounded-full flex flex-row items-center justify-center py-4 border border-border'>
+                            <AntDesign name="apple" size={22} color="white" />
+                            <Text className='ml-3 text-white'>Apple ID</Text>
                         </Pressable>
                     </View>
                 </View>

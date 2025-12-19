@@ -3,8 +3,6 @@ import { View, Text, Pressable, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import Feather from '@expo/vector-icons/Feather';
 import ThemeToggle from './ThemeToggle';
-import ThemeToggleNew from './ThemeToggleNew';
-import { BlurView } from 'expo-blur';
 import useThemeColors from '@/app/contexts/ThemeColors';
 import SlideUp from './SlideUp';
 import { useState } from 'react';
@@ -24,7 +22,7 @@ export default function Header({ showBackButton = false, title = '', hasAvatar =
 
     return (
         <>
-            <View className=' px-5 py-6 flex-row bg-light-primary dark:bg-dark-primary items-center justify-between absolute top-0 left-0 right-0 z-50' style={{ paddingTop: insets.top + 10 }}>
+            <View className=' px-5 py-6 flex-row bg-background items-center justify-between absolute top-0 left-0 right-0 z-50' style={{ paddingTop: insets.top + 10 }}>
                 <View className="flex-row items-center">
                     {showBackButton && (
                         <Pressable
@@ -41,7 +39,7 @@ export default function Header({ showBackButton = false, title = '', hasAvatar =
                         </Pressable>
                     )}
                     {title && (
-                        <Text className="text-neutral-900 dark:text-neutral-50 text-2xl font-bold">{title}</Text>
+                        <Text className="text-text text-2xl font-bold">{title}</Text>
                     )}
                 </View>
                 <ThemeToggle />

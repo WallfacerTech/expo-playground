@@ -7,36 +7,36 @@ import Feather from '@expo/vector-icons/Feather';
 import { BlurView } from "expo-blur";
 
 interface VideoCardProps {
-  videoUrl: string;
-  title: string;
-  description: string;
-  duration: string;
-  onPress?: () => void;
+    videoUrl: string;
+    title: string;
+    description: string;
+    duration: string;
+    onPress?: () => void;
 }
 
-export default function VideoCard({ 
-  videoUrl, 
-  title, 
-  description, 
-  duration,
-  onPress 
+export default function VideoCard({
+    videoUrl,
+    title,
+    description,
+    duration,
+    onPress
 }: VideoCardProps) {
     const [error, setError] = useState<string | null>(null);
     const [expanded, setExpanded] = useState(false);
-    
+
     const fadeAnim = useRef(new Animated.Value(1)).current;
     const heightAnim = useRef(new Animated.Value(220)).current;
     const translateYAnim = useRef(new Animated.Value(-20)).current;
-    
+
     const player = useVideoPlayer(videoUrl, player => {
         player.loop = true;
         player.play();
     });
-    
+
     const handleToggle = () => {
         const newExpanded = !expanded;
         setExpanded(newExpanded);
-        
+
         if (newExpanded) {
             Animated.parallel([
                 Animated.timing(fadeAnim, {
@@ -58,7 +58,7 @@ export default function VideoCard({
                     easing: Easing.out(Easing.back(1)),
                 })
             ]).start();
-            
+
         } else {
             Animated.parallel([
                 Animated.timing(fadeAnim, {
@@ -80,7 +80,7 @@ export default function VideoCard({
                     easing: Easing.inOut(Easing.cubic),
                 })
             ]).start();
-            
+
         }
 
         if (onPress) onPress();
@@ -102,10 +102,12 @@ export default function VideoCard({
                 style={{
                     height: heightAnim,
                 }}
-                className="w-full bg-white dark:bg-neutral-800 rounded-2xl relative overflow-hidden"
+                className="w-full bg-secondary rounded-2xl relative overflow-hidden"
             >
                 <Animated.View style={{ opacity: fadeAnim, zIndex: 30 }}>
-                    <LinearGradient className="w-full flex justify-between h-full z-30 p-6" colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.6)']}>
+                    <LinearGradient
+                        style={{ width: '100%', display: 'flex', justifyContent: 'space-between', height: '100%', zIndex: 30, padding: 16 }}
+                        colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.6)']}>
                         <View className="flex-row justify-end">
                             <Text className="text-white text-sm opacity-70 bg-black/70 px-2 py-1 rounded-full">{duration}</Text>
                         </View>
@@ -120,7 +122,7 @@ export default function VideoCard({
                         </View>
                     </LinearGradient>
                 </Animated.View>
-                
+
                 {error ? (
                     <View className="absolute top-0 left-0 w-full h-full items-center justify-center z-20">
                         <View className="p-4 bg-red-500/10 rounded-lg">
@@ -128,18 +130,18 @@ export default function VideoCard({
                         </View>
                     </View>
                 ) : (
-                    <Animated.View 
+                    <Animated.View
                         className="absolute top-0 left-0 scale-[200%] z-10"
-                        style={{ 
-                            width: '100%', 
-                            height: 500, 
+                        style={{
+                            width: '100%',
+                            height: 500,
                             top: -200,
                             transform: [{ translateY: translateYAnim }]
                         }}
                     >
                         <VideoView
                             player={player}
-                            style={{ width: '100%', height: 500, transform: [{scale: 1.5}] }}
+                            style={{ width: '100%', height: 500, transform: [{ scale: 1.5 }] }}
                             allowsFullscreen
                             nativeControls={false}
                         />

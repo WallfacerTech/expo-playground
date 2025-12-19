@@ -35,7 +35,7 @@ export default function MasonryScreen() {
             <Header showBackButton />
             <Animated.ScrollView 
                 showsVerticalScrollIndicator={false}
-                className='px-5 bg-neutral-100 dark:bg-neutral-900'
+                className='px-5 bg-background '
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                     { useNativeDriver: true }
@@ -44,8 +44,8 @@ export default function MasonryScreen() {
                 style={{paddingTop: insets.top + 100, paddingBottom: insets.bottom}}
             >
                 <View className='mb-20 mt-10'>
-                    <Text className='text-4xl font-bold dark:text-white'>Masonry grid</Text>
-                    <Text className='text-neutral-600 dark:text-neutral-400 text-lg'>Welcome to my playground</Text>
+                    <Text className='text-4xl font-bold text-text'>Masonry grid</Text>
+                    <Text className='text-text text-lg opacity-50'>Welcome to my playground</Text>
                 </View>
 
                 <View className='flex-row' style={{ paddingBottom: insets.bottom }}>
@@ -59,7 +59,7 @@ export default function MasonryScreen() {
                     
                     {/* Second column - parallax effect */}
                     <Animated.View 
-                        className='flex-col w-1/2 pl-1'
+                        className='flex-col w-1/2 pl-1 mb-44'
                         style={{ 
                             transform: [{ translateY: secondColumnTranslateY }]
                         }}

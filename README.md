@@ -1,7 +1,7 @@
 # Thomino's playground
-Get full Expo apps on https://www.native-templates.com - 1-2 new templates every month
+Get full Expo app templates on https://www.native-templates.com
 
-![Get full Expo apps on www.native-templates.com - 1-2 new templates every month](assets/img/readme/readme.jpg)
+![Get full Expo apps on www.native-templates.com](assets/img/readme/readme.jpg)
 
 
 

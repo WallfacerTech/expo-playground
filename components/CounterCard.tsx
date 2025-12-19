@@ -67,67 +67,55 @@ export default function CounterCard() {
     const formattedValue = formatCurrency(displayValue);
 
     return (
-        <View style={{
-            elevation: 10,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 4 },
-            shadowOpacity: 0.1,
-            shadowRadius: 2,
-        }}>
-            <LinearGradient
-                colors={[colors.gradient[0], colors.gradient[1]]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0.5 }}
-                className='rounded-2xl bg-white dark:bg-dark-secondary border-2 border-white dark:border-black/40'>
-                <View className='w-full p-5'>
-                    <View className='flex-row justify-between gap-2 mb-20'>
-                        <View className='flex-row border border-white/20 items-center bg-black/10 dark:bg-black/50 p-1 rounded-lg'>
-                            <Chip
-                                title='Today'
-                                isActive={activeTab === 'today'}
-                                onPress={() => setActiveTab('today')}
-                            />
-                            <Chip
-                                title='Yesterday'
-                                isActive={activeTab === 'yesterday'}
-                                onPress={() => setActiveTab('yesterday')}
-                            />
+                <View
+                    className='rounded-2xl bg-secondary overflow-hidden '>
+                    <View className='w-full p-5'>
+                        <View className='flex-row justify-between gap-2 mb-20'>
+                            <View className='flex-row border border-border items-center bg-background p-1 rounded-lg'>
+                                <Chip
+                                    title='Today'
+                                    isActive={activeTab === 'today'}
+                                    onPress={() => setActiveTab('today')}
+                                />
+                                <Chip
+                                    title='Yesterday'
+                                    isActive={activeTab === 'yesterday'}
+                                    onPress={() => setActiveTab('yesterday')}
+                                />
+                            </View>
+                            <Feather name='more-vertical' size={20} color={colors.icon} />
                         </View>
-                        <Feather name='more-vertical' size={20} color={colors.icon} />
-                    </View>
-                    <View className='flex-row justify-between'>
-                        <View>
-                            <Text className='text-black dark:text-white text-sm opacity-50'>Total sales</Text>
-                            <View className='flex-row items-center w-full justify-between'>
-                                <Text className='text-black dark:text-white text-3xl font-bold w-[150px]'>
-                                    {formattedValue}
-                                </Text>
-                                <View className='px-2 py-1 bg-sky-500/20 border border-sky-500/20 rounded-md ml-2'>
-                                    <Text className='dark:text-sky-300 text-sky-500 text-sm font-semibold'>{percentageChange}</Text>
+                        <View className='flex-row justify-between'>
+                            <View>
+                                <Text className='text-text text-sm opacity-50'>Total sales</Text>
+                                <View className='flex-row items-center w-full justify-between'>
+                                    <Text className='text-text text-3xl font-bold w-[150px]'>
+                                        {formattedValue}
+                                    </Text>
+                                    <View className='px-2 py-1 bg-sky-500/20 border border-sky-500/20 rounded-md ml-2'>
+                                        <Text className='text-sky-500 text-sm font-semibold'>{percentageChange}</Text>
+                                    </View>
                                 </View>
                             </View>
                         </View>
                     </View>
-                </View>
-                <View className='flex-row justify-between px-5 py-3 border-t border-black/10 dark:border-white/10 bg-black/10 dark:bg-black/20'>
-                    <Text className='text-black dark:text-white text-sm opacity-50 flex-1'>This is just a fun card.</Text>
-                    <View className='flex-row items-center gap-4 opacity-50'>
-                        <Feather name='chevron-right' size={20} color={colors.icon} />
+                    <View className='flex-row justify-between px-5 py-3 border-t border-border bg-black/10'>
+                        <Text className='text-text text-sm opacity-50 flex-1'>This is just a fun card.</Text>
+                        <View className='flex-row items-center gap-4 opacity-50'>
+                            <Feather name='chevron-right' size={20} color={colors.icon} />
+                        </View>
                     </View>
                 </View>
-            </LinearGradient>
-
-        </View>
     );
 }
 
 const Chip = (props: any) => {
     return (
         <Pressable
-            className={`rounded-md px-3 py-1 ${props.isActive ? 'bg-white' : ''}`}
+            className={`rounded-md px-3 py-1 ${props.isActive ? 'bg-secondary' : ''}`}
             onPress={props.onPress}
         >
-            <Text className={`text-black dark:text-white text-xs ${props.isActive ? 'text-black' : ''}`}>{props.title}</Text>
+            <Text className={`text-text text-xs ${props.isActive ? 'text-text' : ''}`}>{props.title}</Text>
         </Pressable>
     );
 }
