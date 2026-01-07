@@ -22,7 +22,7 @@ export default function Header({ showBackButton = false, title = '', hasAvatar =
 
     return (
         <>
-            <View className=' px-5 py-6 flex-row bg-background items-center justify-between absolute top-0 left-0 right-0 z-50' style={{ paddingTop: insets.top + 10 }}>
+            <View className=' px-5 py-6 flex-row bg-background items-center justify-between ' style={{ paddingTop: insets.top + 10 }}>
                 <View className="flex-row items-center">
                     {showBackButton && (
                         <Pressable

@@ -26,8 +26,8 @@ export default function WeatherScreen() {
     return (
         <>
             <Header showBackButton />
-            <View className='flex-1 p-6 bg-background'>
-                <View className='flex-row pt-2 mt-[105px] overflow-hidden items-start justify-between border-t border-text'>
+            <View className='flex-1 p-6 pt-0 bg-background'>
+                <View className='flex-row pt-2 overflow-hidden items-start justify-between border-t border-text'>
                     <Text className='text-sm font-normal uppercase text-text'>
                         New York
                     </Text>

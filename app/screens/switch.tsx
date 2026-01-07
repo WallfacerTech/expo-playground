@@ -7,7 +7,7 @@ export default function SwitchScreen() {
     return (
         <>
             <Header showBackButton />
-            <View className='flex-1 p-6 pt-[120px] bg-background'>
+            <View className='flex-1 p-6  bg-background'>
                 <View 
                 style={{
                     shadowColor: '#000',

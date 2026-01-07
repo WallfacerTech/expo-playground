@@ -18,7 +18,7 @@ export default function JournalCardsScreen() {
                         shadowOpacity: 0.04,
                         shadowRadius: 5.84,
                     }}
-                    className='p-6 pt-[140px] space-y-6'>
+                    className='p-6 space-y-6'>
                         <JournalCard
                             title="Morning coffee ritual"
                             imageUrl="https://images.unsplash.com/photo-1462917882517-e150004895fa?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

@@ -8,7 +8,7 @@ export default function MasonryScreen() {
     return (
         <>
             <Header showBackButton />
-            <View className='flex-1 p-6 pt-[140px] bg-background'>
+            <View className='flex-1 p-6 bg-background'>
                 <CounterCard />
             </View>
         </>

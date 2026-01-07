@@ -41,9 +41,9 @@ export default function MasonryScreen() {
                     { useNativeDriver: true }
                 )}
                 scrollEventThrottle={16}
-                style={{paddingTop: insets.top + 100, paddingBottom: insets.bottom}}
+                style={{paddingTop: insets.top + 0, paddingBottom: insets.bottom}}
             >
-                <View className='mb-20 mt-10'>
+                <View className='mb-20'>
                     <Text className='text-4xl font-bold text-text'>Masonry grid</Text>
                     <Text className='text-text text-lg opacity-50'>Welcome to my playground</Text>
                 </View>

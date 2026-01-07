@@ -92,9 +92,7 @@ export default function ParallaxScreen() {
         <>
         <Header showBackButton />
             <View className="flex-1 relative bg-background">
-                <View className='w-full flex-row justify-end px-4 pt-2'>
-                    <ThemeToggle />
-                </View>
+               
                 <Animated.FlatList
                     ref={flatListRef}
                     data={slides}

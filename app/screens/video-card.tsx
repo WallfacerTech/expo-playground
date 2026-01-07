@@ -9,7 +9,7 @@ export default function VideoCardScreen() {
             <Header showBackButton title="" />
             <ScrollView
                 showsVerticalScrollIndicator={false}
-                className='p-6 pt-[140px] bg-background'
+                className='p-6 bg-background'
             >
                 <View className="space-y-6">
                     <VideoCard

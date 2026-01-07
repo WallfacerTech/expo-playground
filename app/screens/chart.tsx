@@ -14,7 +14,7 @@ export default function JournalCardsScreen() {
         <>
             <Header showBackButton />
 
-            <ScrollView className='flex-1 bg-background p-2' style={{ paddingTop: insets.top + 80 }}>
+            <ScrollView className='flex-1 bg-background p-2' style={{ paddingTop: insets.top + 0 }}>
                 <Counter currentDataIndex={currentDataIndex} setCurrentDataIndex={setCurrentDataIndex} />
                 <Chart currentDataIndex={currentDataIndex} />
             </ScrollView>
