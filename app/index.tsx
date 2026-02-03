@@ -17,7 +17,7 @@ export default function Home() {
             <Header hasAvatar />
             <ScrollView style={{ paddingTop: insets.top + 0 }} className='px-6 pt-0  bg-background'>
                 <View className='mb-14 mt-0 px-4'>
-                    <Text className='text-5xl font-bold text-text'>Hello there!</Text>
+                    <Text className='text-5xl font-bold text-text'>hey wallfacer!</Text>
                     <Text className='text-text text-lg opacity-50'>Welcome to my playground</Text>
                 </View>
                 <LinkItem href='/screens/native-toolbar' icon='menu' title='Native Toolbar' description='iOS bottom toolbar (v7 beta)' />
