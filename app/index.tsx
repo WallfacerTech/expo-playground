@@ -20,9 +20,10 @@ export default function Home() {
                     <Text className='text-5xl font-bold text-text'>Hello there!</Text>
                     <Text className='text-text text-lg opacity-50'>Welcome to my playground</Text>
                 </View>
+                <LinkItem href='/screens/skia' icon='bar-chart' title='Chart' description='Skia animated chart' />
                 <LinkItem href='/screens/native-toolbar' icon='menu' title='Native Toolbar' description='iOS bottom toolbar (v7 beta)' />
                 <LinkItem href='/screens/native-demo' icon='smartphone' title='Native Sheets' description='iOS form sheet dialogs' />
-                
+              
                 <LinkItem href='/screens/notes' icon='book-open' title='Notes' description='Expandable cards' />
                 <LinkItem href='/screens/product' icon='shopping-cart' title='Product' description='Procuct details' />
                 <LinkItem href='/screens/dropdown' icon='chevron-down' title='Dropdown' description='Expandable dropdown' />
